@@ -84,7 +84,9 @@ public class BookServiceImpl implements BookService {
     @Override
     public AddNewBookResponseDto addNewBook(@Valid AddNewBookRequestDto requestDto) {
         AddNewBookResponseDto response = new AddNewBookResponseDto();
-        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())) {
+        List<BookEntity> sameBook=bookDao.getByTitleAndAuthor(requestDto.getTitle(), requestDto.getAuthor());
+
+        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())&&sameBook.size()==0) {
             BookEntity bookEntity = addNewBookAttribute(requestDto);
             bookRepository.save(bookEntity);
             response.setMessage("Book registered");
@@ -99,7 +101,6 @@ public class BookServiceImpl implements BookService {
     public BookEntity addNewBookAttribute(AddNewBookRequestDto requestDto) {
         BookEntity entity = new BookEntity();
         entity.setAuthor(requestDto.getAuthor());
-        entity.setBookId(requestDto.getBookId());
         entity.setCreatedAt(LocalDate.now());
         entity.setIsbn(requestDto.getIsbn());
         entity.setPrice(requestDto.getPrice());
@@ -113,7 +114,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public AddNewBookResponseDto updateBook(@Valid AddNewBookRequestDto requestDto) {
         AddNewBookResponseDto response = new AddNewBookResponseDto();
-        if (requestDto.getRole().equals(RoleType.ADMIN)) {
+        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())) {
             BookEntity bookEntity = bookRepository.findByIsbn(requestDto.getIsbn());
             bookRepository.save(bookEntity);
             response.setMessage("Book Updated");

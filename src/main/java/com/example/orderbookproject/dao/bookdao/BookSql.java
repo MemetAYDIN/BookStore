@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BookSql implements Serializable {
 
     public static final String BOOK_LIST_SQL = """
-                SELECT *FROM BOOK
+                SELECT *FROM BOOK where title=:title and author=:author
 
             """
             .stripIndent();

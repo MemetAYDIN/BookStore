@@ -20,8 +20,10 @@ public class BookDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<BookEntity> getAllBooks() {
-        Query query = getEntityManager().createNativeQuery(BookSql.BOOK_LIST_SQL, BookEntity.class);
+    public List<BookEntity> getByTitleAndAuthor(String title,String author) {
+        Query query = getEntityManager().createNativeQuery(BookSql.BOOK_LIST_SQL, BookEntity.class)
+        .setParameter("title",title)
+        .setParameter("author", author);
 
         return query.getResultList();
     }

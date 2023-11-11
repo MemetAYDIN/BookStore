@@ -30,7 +30,7 @@ public class BookEntity {
     @Column(name = "isbn", nullable = false, unique = true)
     private String isbn;
 
-    @Column(name = "tittle", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "author", nullable = false)

@@ -10,7 +10,6 @@ import lombok.Data;
 @Data
 public class AddNewBookRequestDto {
 
-    private Long bookId;
     private String isbn;
     private String title;
     private String author;

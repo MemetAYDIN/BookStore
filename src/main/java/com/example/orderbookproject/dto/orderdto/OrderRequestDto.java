@@ -1,7 +1,6 @@
 package com.example.orderbookproject.dto.orderdto;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -22,4 +21,5 @@ public class OrderRequestDto {
     private Set<OrderBookDetailDto> bookList;
     private BigDecimal totalPrice;
     private Long totalQuantity;
+    private Long userId;
 }
