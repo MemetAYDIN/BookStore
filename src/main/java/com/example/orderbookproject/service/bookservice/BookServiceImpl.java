@@ -84,7 +84,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public AddNewBookResponseDto addNewBook(@Valid AddNewBookRequestDto requestDto) {
         AddNewBookResponseDto response = new AddNewBookResponseDto();
-        if (requestDto.getRole().equals(RoleType.ADMIN)) {
+        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())) {
             BookEntity bookEntity = addNewBookAttribute(requestDto);
             bookRepository.save(bookEntity);
             response.setMessage("Book registered");
