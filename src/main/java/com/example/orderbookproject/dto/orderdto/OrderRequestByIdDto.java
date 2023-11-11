@@ -1,7 +1,5 @@
 package com.example.orderbookproject.dto.orderdto;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import lombok.AllArgsConstructor;
@@ -16,10 +14,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @NoArgsConstructor
-public class OrderBookDetailDto {
-    private String isbn;
-    private String title;
-    private String author;
-    private BigDecimal price;
-    private Long stockQuantity;
+public class OrderRequestByIdDto {
+    private Long orderId;
 }
