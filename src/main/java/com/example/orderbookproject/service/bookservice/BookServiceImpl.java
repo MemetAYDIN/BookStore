@@ -86,7 +86,7 @@ public class BookServiceImpl implements BookService {
         AddNewBookResponseDto response = new AddNewBookResponseDto();
         List<BookEntity> sameBook=bookDao.getByTitleAndAuthor(requestDto.getTitle(), requestDto.getAuthor());
 
-        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())&&sameBook.size()==0) {
+        if (requestDto.getRole().equals(RoleType.ADMIN.getValue())) {
             BookEntity bookEntity = addNewBookAttribute(requestDto);
             bookRepository.save(bookEntity);
             response.setMessage("Book registered");
