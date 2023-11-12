@@ -45,6 +45,6 @@ public class OrderEntity implements Serializable{
     @JoinColumn(name = "USER_ID")
     private UserEntity user;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "order")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
     private List<BookEntity> bookList;
 }
