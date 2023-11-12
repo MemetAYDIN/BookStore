@@ -12,6 +12,7 @@ import com.example.orderbookproject.entity.BookEntity;
 public interface BookMapper {
     
     BookMapper INSTANCE=Mappers.getMapper(BookMapper.class);
+    
     BookEntity toBookEntity(OrderBookDetailDto orderBookDetailRequestDto);
 
     OrderBookDetailDto toResponseDto(BookEntity bookEntity);

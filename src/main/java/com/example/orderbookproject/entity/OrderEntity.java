@@ -1,5 +1,6 @@
 package com.example.orderbookproject.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import lombok.Data;
 @Entity
 @Table(name = "ORDERS")
 @Data
-public class OrderEntity {
+public class OrderEntity implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "order_id")

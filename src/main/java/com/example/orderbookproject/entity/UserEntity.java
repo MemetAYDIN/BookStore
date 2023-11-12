@@ -1,5 +1,6 @@
 package com.example.orderbookproject.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ import com.example.orderbookproject.dto.userdto.RoleType;
 @Entity
 @Table(name = "USERS")
 @Data
-public class UserEntity {
+public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

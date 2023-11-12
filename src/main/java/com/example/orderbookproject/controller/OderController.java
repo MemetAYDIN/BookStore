@@ -31,8 +31,7 @@ public class OderController {
     @PostMapping("/neworder")
     public ResponseEntity<OrderResponseDto> addNewOrder(@RequestBody OrderRequestDto requestDto) {
         
-        OrderEntity orderEntity=OrderMapper.INSTANCE.toOrderEntity(requestDto);
-        return ResponseEntity.ok().body(orderService.addNewOrder(orderEntity));
+        return ResponseEntity.ok().body(orderService.addNewOrder(requestDto));
     
     }
        
