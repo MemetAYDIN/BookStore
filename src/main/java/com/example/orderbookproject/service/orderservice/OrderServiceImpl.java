@@ -67,7 +67,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderResponseDetailDto> getOrderById(OrderRequestByIdDto requestDto) {
-        List<OrderEntity> entityList=orderDao.getOrderByUserId(requestDto.getUserId());
+        //List<OrderEntity> entityList=orderDao.getOrderByUserId(requestDto.getUserId());
+        List<OrderEntity> entityList=orderRepository.findByUserId(requestDto.getUserId());
         List<OrderResponseDetailDto> orderDetailList=new ArrayList<>();
         if(!CollectionUtils.isEmpty(entityList)){
             orderDetailList=OrderMapper.INSTANCE.toOrderResponseList(entityList);
