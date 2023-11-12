@@ -15,5 +15,5 @@ import lombok.experimental.SuperBuilder;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @NoArgsConstructor
 public class OrderRequestByIdDto {
-    private Long orderId;
+    private Long userId;
 }

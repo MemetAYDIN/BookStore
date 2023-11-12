@@ -3,13 +3,17 @@ package com.example.orderbookproject.service.orderservice;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.example.orderbookproject.Mapper.OrderMapper;
 import com.example.orderbookproject.dao.orderdao.OrderDao;
+import com.example.orderbookproject.dto.orderdto.OrderBookDetailDto;
 import com.example.orderbookproject.dto.orderdto.OrderRequestByIdDto;
 import com.example.orderbookproject.dto.orderdto.OrderResponseDetailDto;
 import com.example.orderbookproject.dto.orderdto.OrderResponseDto;
@@ -51,11 +55,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponseDetailDto getOrderById(OrderRequestByIdDto requestDto) {
-
-        OrderEntity entity=orderDao.getOrderById(requestDto.getOrderId());
-        OrderResponseDetailDto detailDto=OrderMapper.INSTANCE.toOrderResponse(entity);
-        return detailDto;
+    public List<OrderResponseDetailDto> getOrderById(OrderRequestByIdDto requestDto) {
+        List<OrderEntity> entityList=orderDao.getOrderByUserId(requestDto.getUserId());
+        List<OrderResponseDetailDto> orderDetailList=new ArrayList<>();
+        if(!CollectionUtils.isEmpty(entityList)){
+            orderDetailList=OrderMapper.INSTANCE.toOrderResponseList(entityList);
+        }else{
+            throw new BusinessException("USER DON'T HAVE ORDERS");
+        }
+        return orderDetailList;
     }
 
 }

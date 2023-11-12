@@ -21,11 +21,11 @@ public class OrderDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public OrderEntity getOrderById(Long orderId) {
-        Query query = getEntityManager().createNativeQuery(OrderSql.ORDER_LIST_DESC_BY_UPDATE_DATE_SQL, BookEntity.class)
-        .setParameter("orderId", orderId);
+    public List<OrderEntity> getOrderByUserId(Long userId) {
+        Query query = getEntityManager().createNativeQuery(OrderSql.ORDER_LIST_DESC_BY_USER_ID_SQL, BookEntity.class)
+        .setParameter("userId", userId);
 
-        return  (OrderEntity) query.getSingleResult();
+        return  query.getResultList();
     }
 
     /*

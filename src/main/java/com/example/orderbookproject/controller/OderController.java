@@ -1,5 +1,8 @@
 package com.example.orderbookproject.controller;
 
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +37,7 @@ public class OderController {
     }
        
     @GetMapping("/orderbyıd")
-    public ResponseEntity<OrderResponseDetailDto> addNewOrder(@RequestBody OrderRequestByIdDto requestDto) {
+    public ResponseEntity<List<OrderResponseDetailDto>> addNewOrder(@RequestBody OrderRequestByIdDto requestDto) {
         
         return ResponseEntity.ok().body(orderService.getOrderById(requestDto));
     

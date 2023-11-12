@@ -1,5 +1,7 @@
 package com.example.orderbookproject.Mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -17,4 +19,6 @@ public interface OrderMapper {
     OrderEntity entityToResponse(OrderResponseDetailDto orderResponseDto);
 
     OrderResponseDetailDto toOrderResponse(OrderEntity entity);
+
+    List<OrderResponseDetailDto> toOrderResponseList(List<OrderEntity> entity);
 }
