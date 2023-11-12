@@ -7,6 +7,9 @@ Services prepared like below;
 SignUp;
 
 http://localhost:8080/api/v1/users/signup
+
+
+RequestJson;
 {
   "name":"user1",
   "password":"password",
@@ -21,6 +24,9 @@ LOGIN:
 
 http://localhost:8080/api/v1/users/login
 
+
+
+RequestJson;
 {
   
   "email":"email1@email.aaa",
@@ -33,6 +39,8 @@ TRY to login with not exist user
 
 NEW BOOK;
 http://localhost:8080/api/v1/books/newbook
+
+RequestJson;
 {
     "isbn":"isbn",
     "title":"Book1",
@@ -46,6 +54,8 @@ Try to add new book not ADMIN
  
 getByIsbn:
 http://localhost:8080/api/v1/books/bookbyisbn
+
+RequestJson;
 {
   "isbn":"isbn"
 }
@@ -53,6 +63,8 @@ http://localhost:8080/api/v1/books/bookbyisbn
 
 Book update:
 http://localhost:8080/api/v1/books/update
+
+RequestJson;
 {
     "bookId":1,
     "isbn":"isbn3",
@@ -62,12 +74,11 @@ http://localhost:8080/api/v1/books/update
     "stockQuantity":"3",
     "role":"ADMIN"
 }
- 
-ADMIN olayman bir kullanıcı ile update yapıldığında;
- 
 
 NEW ORDER;
 http://localhost:8080/api/v1/orders/neworder
+
+RequestJson;
 {
   "bookList":[
   {"isbn":"isbn1","title":"Book1","author":"author1","price":55,"stockQuantity":2}
@@ -79,6 +90,8 @@ http://localhost:8080/api/v1/orders/neworder
 
 DELETE BOOK
 http://localhost:8080/api/v1/books/delete
+
+RequestJson;
 {
     "isbn":"isbn"
 }
@@ -86,6 +99,8 @@ http://localhost:8080/api/v1/books/delete
 
 OrderByUserId;
 http://localhost:8080/api/v1/orders/orderbyıd
+
+RequestJson;
 {
   "userId":1
 }
